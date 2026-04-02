@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import tools.jackson.databind.ObjectMapper;
 
 @Component
 @RequiredArgsConstructor
@@ -17,6 +18,10 @@ public class LicitacaoClient {
     private final TokenService tokenService;
 
     public String enviar(Object request) {
+
+
+        ObjectMapper mapper = new ObjectMapper();
+        System.out.println(mapper.writeValueAsString(request));
 
         String url = "http://localhost:8080/api/incluirlicitacaoeletronica";
 
