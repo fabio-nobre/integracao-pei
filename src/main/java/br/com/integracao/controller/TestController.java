@@ -4,6 +4,8 @@ import br.com.integracao.client.LicitacaoClient;
 import br.com.integracao.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -80,4 +82,10 @@ public class TestController {
         // 🚀 envio
         return client.enviar(lic);
     }
+
+    @PostMapping("/licitacao")
+    public String enviar(@RequestBody LicitacaoRequest request) {
+        return client.enviar(request);
+    }
+
 }
